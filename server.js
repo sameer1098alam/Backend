@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 require('dotenv').config(); // Load environment variables
-
+const cors=require('cors');
 const app = express();
 const port = 3000;
 
@@ -11,6 +11,7 @@ const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 console.log('Email User:', process.env.EMAIL_USER);
 console.log('Receiver Email:', process.env.RECEIVER_EMAIL);
